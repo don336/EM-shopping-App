@@ -1,0 +1,183 @@
+{
+  "Electronics": [
+    {
+      "ProductName": "Wireless sound-pro Bluetooth",
+      "id": "BT11180",
+      "ProductAmount": "40.00",
+      "ProductDetails": "Best products with a guaranteed longertivity",
+      "ProductSeller": "Sold by AlfinTech",
+      "ProductImage": "/images/wireless sound bluetooth.jpg"
+    },
+
+    {
+      "ProductName": "FHD Smart Android LED",
+      "id": "FH10002",
+      "ProductAmount": "113.00",
+      "ProductDetails": "Guaranteed durability",
+      "ProductSeller": "Sold by De Eco",
+      "ProductImage": "/images/smart android led.png"
+    },
+
+    {
+      "ProductName": "Player Micro Set",
+      "id": "PMS210",
+      "ProductAmount": "21.50",
+      "ProductDetails": "Long lasting with good sound",
+      "ProductSeller": "Ulesson",
+      "ProductImage": "/images/Player micro set.jpg"
+    },
+
+    {
+      "ProductName": "Wireless Controller",
+      "id": "WC3002",
+      "ProductAmount": "9.00",
+      "ProductDetails": "Best feel and comfort",
+      "ProductSeller": "Okeymaria",
+      "ProductImage": "/images/Wireless controller.png"
+    },
+
+    {
+      "ProductName": "JBL Rechargeable",
+      "id": "K4118",
+      "ProductAmount": "15.00",
+      "ProductDetails": "Best in sound production",
+      "ProductSeller": "Fulcrum Store",
+      "ProductImage": "/images/Jbl rechargeable.jpg"
+    },
+
+    {
+      "ProductName": "Home Theater",
+      "id": "LG1250W",
+      "ProductAmount": "17.80",
+      "ProductDetails": "Guaranteed durability",
+      "ProductSeller": "Sunnyside Elect",
+      "ProductImage": "/images/Home theater.jpg"
+    },
+
+    {
+      "ProductName": "Sony Ps4 Slim",
+      "id": "SP900C",
+      "ProductAmount": "66.00",
+      "ProductDetails": "Guaranteed durability",
+      "ProductSeller": "Alphakashonline",
+      "ProductImage": "/images/Sony ps4 slim.jpg"
+    },
+
+    {
+      "ProductName": "Apple Airpods",
+      "id": "AA550",
+      "ProductAmount": "3.50",
+      "ProductDetails": "Long lasting batteries",
+      "ProductSeller": "Crown More",
+      "ProductImage": "/images/Apple Airpods.jpg"
+    },
+
+    {
+      "ProductName": "ChromeCast",
+      "id": "CC6611",
+      "ProductAmount": "59.43",
+      "ProductDetails": "Best offered experience",
+      "ProductSeller": "Mabel Magestic",
+      "ProductImage": "/images/chrome cast.jpg"
+    },
+
+    {
+      "ProductName": "Freepods",
+      "id": "FP0009",
+      "ProductAmount": "16.50",
+      "ProductDetails": "Best product and durability",
+      "ProductSeller": "Phemtem Concept",
+      "ProductImage": "/images/Free pods.webp"
+    },
+
+    {
+      "ProductName": "PS2 Memory Card",
+      "id": "PMC111",
+      "ProductAmount": "12.00",
+      "ProductDetails": "Large space with good quality",
+      "ProductSeller": "ProdataFlex",
+      "ProductImage": "/images/Ps2 Memory card.jpg"
+    },
+
+    {
+      "ProductName": "HDMI Cable",
+      "id": "VGC1100",
+      "ProductAmount": "15.00",
+      "ProductDetails": "Flexible and durable",
+      "ProductSeller": "Latterglory",
+      "ProductImage": "/images/vga cable.jpg"
+    },
+
+    {
+      "ProductName": "UPS Battery",
+      "id": "UPB4422",
+      "ProductAmount": "42.00",
+      "ProductDetails": "Durable and Reliable",
+      "ProductSeller": "Excellent Collins",
+      "ProductImage": "/images/ups battery.jpg"
+    },
+
+    {
+      "ProductName": "HDMI Cords",
+      "id": "HDC8800",
+      "ProductAmount": "25.00",
+      "ProductDetails": "Reliable and durable",
+      "ProductSeller": "Ibec Pacific",
+      "ProductImage": "/images/HDMI cords.jpg"
+    },
+
+    {
+      "ProductName": "Dstv Explorer",
+      "id": "DSE7777",
+      "ProductAmount": "55.00",
+      "ProductDetails": "High signal receiver",
+      "ProductSeller": "Device Pro",
+      "ProductImage": "/images/Dstv Explorer.jpg"
+    },
+
+    {
+      "ProductName": "Universal Surge Travel Adapter",
+      "id": "UA6688",
+      "ProductAmount": "17.85",
+      "ProductDetails": "Durable and Reliable",
+      "ProductSeller": "BlueDot",
+      "ProductImage": "/images/Universal Adapter.jpg"
+    },
+
+    {
+      "ProductName": "AV Cable Audio Cable",
+      "id": "AV1100",
+      "ProductAmount": "3.99",
+      "ProductDetails": "Flexible and durable",
+      "ProductSeller": "Jokal Systems",
+      "ProductImage": "/images/Av cable audio.jpg"
+    },
+
+    {
+      "ProductName": "Charging Station",
+      "id": "CS1110E",
+      "ProductAmount": "32.00",
+      "ProductDetails": "Durable and Compatible",
+      "ProductSeller": "Eckofel",
+      "ProductImage": "/images/Charging Station.jpg"
+    },
+
+    {
+      "ProductName": "USB Wall Charger",
+      "id": "USC229D",
+      "ProductAmount": "16.99",
+      "ProductDetails": "Extender with 4 USB Charging ports",
+      "ProductSeller": "Suntech",
+      "ProductImage": "/images/usb wall charger.jpg"
+    },
+
+    {
+      "ProductName": "Cable Ties",
+      "id": "CT9922M",
+      "ProductAmount": "18.00",
+      "ProductDetails": "6 inch wire straps for home office data",
+      "ProductSeller": "samiJackz",
+      "ProductImage": "mages/Cable Ties.jpg"
+    }
+  ]
+}
