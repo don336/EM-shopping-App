@@ -33,7 +33,7 @@ const Details = () => {
   useEffect(() => {
     (async () => {
       if (btn) {
-        const oldItems = await getLocalStorage("so-cart")||[];
+        const oldItems = (await getLocalStorage("so-cart")) || [];
         const updatedItems = [...oldItems, storage];
         setLocalStorage("so-cart", updatedItems);
       }
@@ -42,7 +42,7 @@ const Details = () => {
 
   const deleteItem = async () => {
     const id = getParams("product");
-    const oldItems = await getLocalStorage("so-cart") || [];
+    const oldItems = (await getLocalStorage("so-cart")) || [];
     oldItems.map(function (item, index) {
       if (id === item.id) {
         oldItems.splice(index, 1);
@@ -56,10 +56,7 @@ const Details = () => {
     <Fragment>
       <main id="detail--section">
         <div className="product_detail">
-          <img
-            src="https://images.unsplash.com/photo-1670048326465-381234d24434?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=437&q=80"
-            alt="my-image"
-          />
+          <img src={res.ProductImage} alt="my-image" />
           <div className="detail">
             <p>Name:{`${res.ProductName}`}</p>
             <p>Amount:{`${res.ProductAmount}`}</p>

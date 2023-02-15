@@ -28,10 +28,7 @@ const Home = () => {
             return (
               <Link to={`/details?product=${item.id}`}>
                 <div className="box1" key={item.id}>
-                  <img
-                    src="https://images.unsplash.com/photo-1670048326465-381234d24434?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=437&q=80"
-                    alt="my-Image"
-                  />
+                  <img src={item.ProductImage} alt="my-Image" />
                   <h4>{item.ProductName}</h4>
                 </div>
               </Link>
