@@ -6,12 +6,11 @@ import {
   Card,
   CardActions,
   CardContent,
-  Button,
   Typography,
   Link,
 } from "@mui/material";
 import Rating from "@mui/material/Rating";
-import Navbar from "../../../Layout/Navbar";
+import Navbar from "../../Layout/Navbar";
 const Home = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -30,14 +29,14 @@ const Home = () => {
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
+        columns={{ xs: 1, sm: 8, md: 12 }}
         style={{
           padding: 10,
         }}
       >
         {data.map((item) => (
-          <Grid item xs={2} sm={4} md={4} key={item.ProductId}>
-            <Card sx={{ minWidth: 300 }}>
+          <Grid item xs={1} sm={4} md={4} key={item.ProductId}>
+            <Card sx={{ minWidth: 275 }}>
               <img
                 src={item.ProductImage}
                 alt="my-image"
