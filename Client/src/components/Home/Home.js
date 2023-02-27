@@ -2,24 +2,30 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useState, useEffect } from "react";
-import { Card, CardActions, CardContent,Button, Typography} from "@mui/material";
-import { Item } from "./Home.style";
-import Navbar from "../../Layout/Navbar";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  Button,
+  Typography,
+  Link,
+} from "@mui/material";
+import Rating from "@mui/material/Rating";
+import Navbar from "../../../Layout/Navbar";
 const Home = () => {
-   const [data, setData] = useState([]);
-   useEffect(() => {
-     const dataFetch = async () => {
-       const res = await fetch("http://localhost:5000/Electronics");
-       if (res.ok) {
-         const response = await res.json();
-         setData(response);
-       }
-     };
-     dataFetch();
-   }, []);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const dataFetch = async () => {
+      const res = await fetch("http://localhost:5000/Electronics");
+      if (res.ok) {
+        const response = await res.json();
+        setData(response);
+      }
+    };
+    dataFetch();
+  }, []);
   return (
-    <Box sx={{ flexGrow: 1,
-    }}>
+    <Box sx={{ flexGrow: 1 }}>
       <Navbar />
       <Grid
         container
@@ -31,25 +37,46 @@ const Home = () => {
       >
         {data.map((item) => (
           <Grid item xs={2} sm={4} md={4} key={item.ProductId}>
-              <Card sx={{ minWidth: 300 }}>
-                <img src={item.ProductImage} alt="my-image" width="100%" height="200px"/>
-                <CardContent>
-                  <Typography variant="h5" component="div">
-                    {item.ProductName}
-                  </Typography>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    adjective
-                  </Typography>
-                  <Typography variant="body2">
-                    well meaning and kindly.
-                    <br />
-                    {'"a benevolent smile"'}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small">Learn More</Button>
-                </CardActions>
-              </Card>
+            <Card sx={{ minWidth: 300 }}>
+              <img
+                src={item.ProductImage}
+                alt="my-image"
+                width="100%"
+                height="200px"
+              />
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  {item.ProductName}
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  ${item.ProductAmount}
+                </Typography>
+                <Typography variant="body2">
+                  {item.ProductDetails}
+                  <br />
+                  {item.ProductSeller}
+                </Typography>
+                <Typography variant="body2">
+                  <Rating
+                    name="half-rating"
+                    defaultValue={2.5}
+                    precision={0.5}
+                  />
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Link
+                  component="button"
+                  variant="body2"
+                  onClick={() => {
+                    console.info("I'm a button.");
+                  }}
+                  underline="none"
+                >
+                  Learn More
+                </Link>
+              </CardActions>
+            </Card>
           </Grid>
         ))}
       </Grid>
