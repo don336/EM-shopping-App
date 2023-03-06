@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import {
   Badge,
   Box,
@@ -7,6 +8,7 @@ import {
   MenuItem,
   Toolbar,
   Typography,
+  Drawer,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
@@ -24,6 +26,7 @@ import {
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [isDrawOpen, setIsDrawOpen] = useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -130,7 +133,24 @@ const Navbar = () => {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <MenuIcon
+              onClick={() => {
+                setIsDrawOpen(true);
+              }}
+            />
+            <Drawer
+              anchor="left"
+              open={isDrawOpen}
+              onClose={() => {
+                setIsDrawOpen(false);
+              }}
+            >
+              <Box p={2} width="250px" textAlign="left" role="presentation">
+                <Typography variant="6" component="div">
+                  Side Panel
+                </Typography>
+              </Box>
+            </Drawer>
           </IconButton>
           <Typography
             variant="h6"

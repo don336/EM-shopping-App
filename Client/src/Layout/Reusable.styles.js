@@ -1,4 +1,8 @@
-import { AppBar as MuiAppBar, InputBase, styled } from "@mui/material";
+import {
+  AppBar as MuiAppBar,
+  InputBase,
+  styled,
+} from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import { COLORS } from "../styles/theme";
 
@@ -57,5 +61,4 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const AppBar = styled(MuiAppBar)`
   background-color: ${COLORS.DARK_GREY};
 `;
-
 
