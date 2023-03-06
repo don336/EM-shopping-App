@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import Rating from "@mui/material/Rating";
 import Navbar from "../../Layout/Navbar";
+import Footer from "../../Layout/Footer";
 const Home = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -67,9 +68,7 @@ const Home = () => {
                 <Link
                   component="button"
                   variant="body2"
-                  onClick={() => {
-                    console.info("I'm a button.");
-                  }}
+                  
                   underline="none"
                 >
                   Learn More
@@ -79,6 +78,7 @@ const Home = () => {
           </Grid>
         ))}
       </Grid>
+      <Footer/>
     </Box>
   );
 };

@@ -19,7 +19,7 @@ import {
   StyledInputBase,
   SearchIconWrapper,
   AppBar,
-} from "./Navbar.styles";
+} from "./Reusable.styles";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
