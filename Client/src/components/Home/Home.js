@@ -35,8 +35,8 @@ const Home = () => {
           padding: 10,
         }}
       >
-        {data.map((item) => (
-          <Grid item xs={1} sm={4} md={4} key={item.ProductId}>
+        {data.map((item, index) => (
+          <Grid item xs={1} sm={4} md={4} key={index}>
             <Card sx={{ minWidth: 275 }}>
               <img
                 src={item.ProductImage}
@@ -65,12 +65,7 @@ const Home = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Link
-                  component="button"
-                  variant="body2"
-                  
-                  underline="none"
-                >
+                <Link component="button" variant="body2" underline="none">
                   Learn More
                 </Link>
               </CardActions>
@@ -78,7 +73,7 @@ const Home = () => {
           </Grid>
         ))}
       </Grid>
-      <Footer/>
+      <Footer />
     </Box>
   );
 };

@@ -9,13 +9,29 @@ import {
   Toolbar,
   Typography,
   Drawer,
+  List,
+  Divider,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert";
+// import AccountCircle from "@mui/icons-material/AccountCircle";
+// import ShoppingCart from "@mui/icons-material/ShoppingCart";
+// import Notifications from "@mui/icons-material/Notifications";
+// import MoreVert from "@mui/icons-material/MoreVert";
+import {
+  Category,
+  HeartBrokenTwoTone,
+  Inbox,
+  AccountCircle,
+  ShoppingCart,
+  Notifications,
+  MoreVert,
+  Newspaper,
+} from "@mui/icons-material";
 import {
   Search,
   StyledInputBase,
@@ -69,7 +85,6 @@ const Navbar = () => {
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
-
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
@@ -90,7 +105,7 @@ const Navbar = () => {
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            <ShoppingCartIcon sx={{ color: "#333" }} />
+            <ShoppingCart sx={{ color: "#333" }} />
           </Badge>
         </IconButton>
         <p>Cart</p>
@@ -102,7 +117,7 @@ const Navbar = () => {
           color="inherit"
         >
           <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+            <Notifications />
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -145,10 +160,30 @@ const Navbar = () => {
                 setIsDrawOpen(false);
               }}
             >
-              <Box p={2} width="250px" textAlign="left" role="presentation">
-                <Typography variant="6" component="div">
-                  Side Panel
-                </Typography>
+              <Box>
+                <List>
+                  {["Category", "Feed", "Saved Items", "Orders"].map(
+                    (text, index) => (
+                      <ListItem key={text} disablePadding>
+                        <ListItemButton>
+                          <ListItemIcon>
+                            {index === 0 ? (
+                              <Category />
+                            ) : index === 1 ? (
+                              <Newspaper />
+                            ) : index === 2 ? (
+                              <Inbox />
+                            ) : (
+                              <HeartBrokenTwoTone />
+                            )}
+                          </ListItemIcon>
+                          <ListItemText primary={text} />
+                        </ListItemButton>
+                      </ListItem>
+                    )
+                  )}
+                </List>
+                <Divider />
               </Box>
             </Drawer>
           </IconButton>
@@ -177,7 +212,7 @@ const Navbar = () => {
               color="inherit"
             >
               <Badge badgeContent={4} color="error">
-                <ShoppingCartIcon sx={{ color: "#ffff" }} />
+                <ShoppingCart sx={{ color: "#ffff" }} />
               </Badge>
             </IconButton>
             <IconButton
@@ -186,7 +221,7 @@ const Navbar = () => {
               color="inherit"
             >
               <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+                <Notifications />
               </Badge>
             </IconButton>
             <IconButton
@@ -210,7 +245,7 @@ const Navbar = () => {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <MoreVert />
             </IconButton>
           </Box>
         </Toolbar>
