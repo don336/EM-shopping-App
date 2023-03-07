@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Badge,
   Box,
@@ -18,10 +18,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-// import AccountCircle from "@mui/icons-material/AccountCircle";
-// import ShoppingCart from "@mui/icons-material/ShoppingCart";
-// import Notifications from "@mui/icons-material/Notifications";
-// import MoreVert from "@mui/icons-material/MoreVert";
+import { Link } from "react-router-dom";
 import {
   Category,
   HeartBrokenTwoTone,
@@ -38,9 +35,11 @@ import {
   SearchIconWrapper,
   AppBar,
 } from "./Reusable.styles";
+import { getLocalStorage } from "../utils/util";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [length, setLength] = useState(0);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [isDrawOpen, setIsDrawOpen] = useState(false);
 
@@ -137,6 +136,13 @@ const Navbar = () => {
     </Menu>
   );
 
+  useEffect(() => {
+    (async () => {
+      const oldItems = (await getLocalStorage("so-cart")) || [];
+      setLength(oldItems.length);
+    })();
+  }, []);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -193,7 +199,15 @@ const Navbar = () => {
             component="div"
             sx={{ display: { xs: "none", sm: "block", fontStyle: "italic" } }}
           >
-            LESMO
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "#fff",
+              }}
+              to="/"
+            >
+              LESMO
+            </Link>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -211,7 +225,7 @@ const Navbar = () => {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={length} color="error">
                 <ShoppingCart sx={{ color: "#ffff" }} />
               </Badge>
             </IconButton>
