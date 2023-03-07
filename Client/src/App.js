@@ -1,21 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Layout/Navbar";
+import { ThemeProvider } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
 import Checkout from "./components/Pages/Checkout";
 import Details from "./components/Pages/Details";
-import Home from "./components/Pages/Home";
+import Home from "./components/Home/Home";
+import { theme } from "./styles/theme";
 function App() {
   return (
-    <Router>
-      <div id="container">
-        <Navbar />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/details" exact element={<Details />} />
           <Route path="/checkout" exact element={<Checkout />} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </ThemeProvider>
   );
 }
 
