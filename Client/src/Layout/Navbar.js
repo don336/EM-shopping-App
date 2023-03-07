@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Badge,
   Box,
@@ -39,7 +39,7 @@ import { getLocalStorage } from "../utils/util";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [length, setLength] = useState(0)
+  const [length, setLength] = useState(0);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [isDrawOpen, setIsDrawOpen] = useState(false);
 
@@ -136,10 +136,12 @@ const Navbar = () => {
     </Menu>
   );
 
-   (async ()=>{
-     const oldItems = await getLocalStorage("so-cart") || [];
-     setLength(oldItems.length)
-   })()
+  useEffect(() => {
+    (async () => {
+      const oldItems = (await getLocalStorage("so-cart")) || [];
+      setLength(oldItems.length);
+    })();
+  }, []);
 
   return (
     <Box sx={{ flexGrow: 1 }}>

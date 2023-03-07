@@ -44,10 +44,10 @@ const Details = () => {
   const addToCart = () => {
     setBtn(true);
     setStorage(res);
-    // if (scroll) window.scrollTo(0, 0);
-    // setTimeout(() => {
-    //   setBtn(false);
-    // }, 3000);
+    if (scroll) window.scrollTo(0, 0);
+    setTimeout(() => {
+      setBtn(false);
+    }, 3000);
   };
   const deleteItem = async () => {
     const oldItems = (await getLocalStorage("so-cart")) || [];
@@ -68,15 +68,27 @@ const Details = () => {
           margin: "auto",
         }}
       >
-        <Alert
-          severity="success"
-          style={{
-            display: "block",
-          }}
-        >
-          <AlertTitle>Success</AlertTitle>
-          {res.ProductName}— <strong>Added to cart!</strong>
-        </Alert>
+        {btn ? (
+          <Alert
+            severity="success"
+            style={{
+              display: "block",
+            }}
+          >
+            <AlertTitle>Success</AlertTitle>
+            {res.ProductName}— <strong>Added to cart!</strong>
+          </Alert>
+        ) : (
+          <Alert
+            severity="success"
+            style={{
+              display: "none",
+            }}
+          >
+            <AlertTitle>Success</AlertTitle>
+            {res.ProductName}— <strong>Added to cart!</strong>
+          </Alert>
+        )}
         <Card variant="outlined">
           <Box
             sx={{
