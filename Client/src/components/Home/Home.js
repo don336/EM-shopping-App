@@ -2,13 +2,8 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useState, useEffect } from "react";
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-  Link,
-} from "@mui/material";
+import { Link } from "react-router-dom";
+import { Card, CardActions, CardContent, Typography } from "@mui/material";
 import Rating from "@mui/material/Rating";
 import Navbar from "../../Layout/Navbar";
 import Footer from "../../Layout/Footer";
@@ -42,7 +37,8 @@ const Home = () => {
                 src={item.ProductImage}
                 alt="my-image"
                 width="100%"
-                height="200px"
+                height="300px"
+                object-fit= 'cover'
               />
               <CardContent>
                 <Typography variant="h5" component="div">
@@ -65,7 +61,13 @@ const Home = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Link component="button" variant="body2" underline="none">
+                <Link
+                  to={`/details/${item.id}`}
+                  style={{
+                    textDecoration: "none",
+                    color: "#189AB4",
+                  }}
+                >
                   Learn More
                 </Link>
               </CardActions>

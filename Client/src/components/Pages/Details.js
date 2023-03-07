@@ -1,18 +1,26 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { getLocalStorage, setLocalStorage } from "../../utils/util";
 import {
-  getParams,
-  getLocalStorage,
-  setLocalStorage,
-  alertMessage,
-  deleteMessage,
-} from "../../utils/util";
-import { FaTrash } from "react-icons/fa";
+  Container,
+  Card,
+  CardActions,
+  CardContent,
+  Button,
+  Typography,
+  Rating,
+  Box,
+  Alert,
+  AlertTitle,
+} from "@mui/material";
+import Navbar from "../../Layout/Navbar";
+import Footer from "../../Layout/Footer";
 const Details = () => {
   const [res, setRes] = useState([]);
   const [storage, setStorage] = useState([]);
   const [btn, setBtn] = useState(false);
+  const { id } = useParams();
   useEffect(() => {
-    const id = getParams("product");
     const dataFetch = async () => {
       const res = await fetch(`http://localhost:5000/Electronics/${id}`);
       if (res.ok) {
@@ -24,12 +32,6 @@ const Details = () => {
     dataFetch();
   }, []);
 
-  const addToCart = () => {
-    setBtn(true);
-    setStorage(res);
-    alertMessage(`Product 
-   ${res.ProductName} added to cart!`);
-  };
   useEffect(() => {
     (async () => {
       if (btn) {
@@ -39,74 +41,134 @@ const Details = () => {
       }
     })();
   }, [btn]);
-
+  const addToCart = () => {
+    setBtn(true);
+    setStorage(res);
+    // if (scroll) window.scrollTo(0, 0);
+    // setTimeout(() => {
+    //   setBtn(false);
+    // }, 3000);
+  };
   const deleteItem = async () => {
-    const id = getParams("product");
     const oldItems = (await getLocalStorage("so-cart")) || [];
     oldItems.map(function (item, index) {
       if (id === item.id) {
         oldItems.splice(index, 1);
-        deleteMessage(`${item.ProductName} has been Deleted!`);
       }
       setLocalStorage("so-cart", oldItems);
     });
   };
 
   return (
-    <Fragment>
-      <main id="detail--section">
-        <div className="product_detail">
-          <img src={res.ProductImage} alt="my-image" />
-          <div className="detail">
-            <p>Name:{`${res.ProductName}`}</p>
-            <p>Amount:{`${res.ProductAmount}`}</p>
-            <p>Detail:{`${res.ProductDetails}`}</p>
-          </div>
-        </div>
-        <div className="promotions">
-          <h2>Promotions</h2>
-          <ul>
-            <li>Free shipping to grocery above $300</li>
-            <li>Save big on electronics and enjoy fast delivery</li>
-            <li>10% cash back on your tv subscription with EM electronics</li>
-          </ul>
-        </div>
-        <div className="delivery">
-          <h2>Door Delivery</h2>
-          <p>Delivery $20</p>
-          <p>
-            Ready for delivery between the time you place the order and the next
-            5 days
-          </p>
-        </div>
-        <div className="return">
-          <h2>Return Policy</h2>
-          <p>
-            Free return within 5 days for EM mall items and 7 days for other
-            eligible items.
-          </p>
-        </div>
-        <input
-          onClick={addToCart}
-          type="submit"
-          value="Add to Cart"
-          className="add-to-cart"
-        ></input>
-        <input
-          type="submit"
-          className="removeItem"
-          value="Delete Item"
-          onClick={deleteItem}
-        ></input>
-      </main>
-      <footer>
-        <div className="main-footer">
-          <input type="email" placeholder="Enter Email..." />
-          <button className="email-btn">Submit</button>
-          <p>&copy; 2022 Em-Shopping Cart..</p>
-        </div>
-      </footer>
-    </Fragment>
+    <>
+      <Navbar />
+      <Container
+        style={{
+          padding: "50px",
+          margin: "auto",
+        }}
+      >
+        <Alert
+          severity="success"
+          style={{
+            display: "block",
+          }}
+        >
+          <AlertTitle>Success</AlertTitle>
+          {res.ProductName}— <strong>Added to cart!</strong>
+        </Alert>
+        <Card variant="outlined">
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              padding: "10px",
+            }}
+          >
+            <img
+              src={res.ProductImage}
+              alt="my-image"
+              width="300"
+              height="320px"
+              object-fit="cover"
+              style={{
+                borderRadius: "5px",
+              }}
+            />
+          </Box>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              {res.ProductName}
+            </Typography>
+            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+              ${res.ProductAmount}
+            </Typography>
+            <Typography variant="body2">
+              {res.ProductDetails}
+              <br />
+              {res.ProductSeller}
+            </Typography>
+            <br />
+            <Typography variant="body2">
+              <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+            </Typography>
+            <br />
+            <Typography variant="h4">Promotions</Typography>
+            <ul>
+              <li>
+                {" "}
+                <Typography variant="body2">
+                  Free shipping to grocery above $300.
+                </Typography>
+              </li>
+              <li>
+                {" "}
+                <Typography variant="body2">
+                  Save big on electronics and enjoy fast delivery.
+                </Typography>
+              </li>
+              <li>
+                {" "}
+                <Typography variant="body2">
+                  10% cash back on your tv subscription with EM electronics.
+                </Typography>
+              </li>
+            </ul>
+            <Typography variant="h4">Door Delivery</Typography>
+            <ul>
+              <li>Delivery $20</li>
+              <li>
+                Ready for delivery between the time you place the order and the
+                next 5 days.
+              </li>
+            </ul>
+            <Typography variant="h4">Return Policy</Typography>
+            <ul>
+              <li>
+                Free return within 5 days for Lesmo mall items and 7 days for
+                other.
+              </li>
+            </ul>
+          </CardContent>
+          <CardActions>
+            <Button type="submit" size="small" onClick={addToCart}>
+              Add to Cart
+            </Button>
+            <Button
+              type="submit"
+              size="small"
+              onClick={deleteItem}
+              style={{
+                color: "red",
+              }}
+            >
+              Delete Item
+            </Button>
+          </CardActions>
+        </Card>
+      </Container>
+      <Footer />
+    </>
   );
 };
 
