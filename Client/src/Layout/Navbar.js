@@ -226,16 +226,9 @@ const Navbar = () => {
               color="inherit"
             >
               <Badge badgeContent={length} color="error">
-                <ShoppingCart sx={{ color: "#ffff" }} />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <Notifications />
+                <Link to="/cart">
+                  <ShoppingCart sx={{ color: "#ffff" }} />
+                </Link>
               </Badge>
             </IconButton>
             <IconButton
